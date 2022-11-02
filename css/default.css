@@ -1,5 +1,9 @@
 :root {
+  /* Note: Style guide color for orange failed WCAG-AA contrast ratio
+     when used with a white foreground text */
   --color-primary-orange: hsl(25, 97%, 53%);
+  /* Alternative orange that passes WCAG-AA */
+  --color-primary-dark-orange: hsl(18, 97%, 30%);
   --color-neutral-light-gray: hsl(217, 12%, 63%);
   --color-neutral-medium-gray: hsl(216, 12%, 54%);
   --color-neutral-dark-blue: hsl(213, 19%, 18%);
@@ -23,7 +27,7 @@ body {
   height: 100vh;
   font: 15px var(--font-family);
   background-color: var(--color-neutral-extra-dark-blue);
-  color: var(--color-neutral-medium-gray);
+  color: var(--color-neutral-light-gray);
   padding: 1.1rem 0.5rem;
 }
 
@@ -80,23 +84,20 @@ fieldset {
 
 button {
   font: inherit;
+  font-weight: 700;
   border: none;
   padding: 0.8em;
-  cursor: pointer;
-}
-
-button[type=submit] {
-  flex: 1;
   border-radius: 32px;
-  background-color: var(--color-primary-orange);
+  background-color: var(--color-primary-dark-orange);
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  cursor: pointer;
 }
 
-button[type=submit]:hover {
+button:hover {
   background-color: white;
-  color: var(--color-primary-orange);
+  color: var(--color-primary-dark-orange);
 }
 
 .circle {
@@ -114,7 +115,18 @@ button[type=submit]:hover {
 
 .rate-label {
   color: var(--color-neutral-medium-gray);
-  display: none;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .rate-radio {
@@ -134,7 +146,7 @@ button[type=submit]:hover {
 }
 
 .rate-radio:hover {
-  background-color: var(--color-primary-orange);
+  background-color: var(--color-primary-dark-orange);
   color: white;
 }
 
